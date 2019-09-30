@@ -13,50 +13,53 @@
     <title>Bakery Online</title>
 </head>
 <body>
-    <header class="d-flex justify-content-between align-itens-center p-3">
+    <header class="navbar">
         <h1 id=logo>
             <?php echo $nomeSistema; ?>
         </h1>
         <nav>
             <ul class="nav">
-                <a href="#"><li class"nav-item">Cursos</li></a>
-                <a href="#"><li class="nav-item">Login</li></a>
-                <a href="#"><li class="nav-item">Cadastro</li></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cursos</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cadastro</a>
+                </li>
             </ul>
         </nav>
     </header>
-    <?php
-        $nome = "Elke";
-        $sobrenome = "Burgers";
-        $idade = 44;
-        $usuario = ["Elke", "Burgers", 44, ["musica", "cafe", "skate"]];
-        $usuarioDois = ["nome"=>"Elke", "sobrenome"=>"Burgers", "idade"=>44];
-
-        echo $nome;
-        
-        // echo "<br>";
-        // echo $usuario[3][1];
-
-        // echo "<br>";
-        // echo $usuarioDois["sobrenome"];
-
-        echo "<br>";
-        var_dump($usuario);
-        
-        $usuario[] = "guitarra";
-
-        echo "<br>";
-        var_dump($usuario);
-
-        echo "<br>";
-        echo $usuario[0].$usuario[1];
-
-        echo "<br>";
-        echo "<h1>".$usuario[0]." ".$usuario[1]."</h1>";
-
-        echo "Meu nome é $nome $sobrenome.";
-        echo "<br>";
-        echo 5*2;
-?>    
+    <main>
+        <section class="container mt-4">
+            <div class="row justify-content-around">
+                <div class="col-lg-3 card text-center">
+                    <h2>Pão simples</h2>
+                    <img src="./img/pao1.jpg" class="card-img-top" alt="pao 1">
+                    <div class="card-body">
+                        <p class="card-text">R$20,00</p>
+                        <a href="#" class="btn btn-primary">Compre</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 card text-center">
+                    <h2>Pão pequeno</h2>
+                    <img src="./img/pao2.jpg" class="card-img-top" alt="pao 2">
+                    <div class="card-body">
+                        <p class="card-text">R$15,00</p>
+                        <a href="#" class="btn btn-primary">Compre</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 card text-center">    
+                    <h2>Pão grande</h2>
+                    <img src="./img/pao3.jpg" class="card-img-top" alt="pao 3">
+                    <div class="card-body">
+                        <p class="card-text">R$25,00</p>
+                        <a href="#" class="btn btn-primary">Compre</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
