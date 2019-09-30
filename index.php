@@ -1,5 +1,6 @@
 <?php
     $nomeSistema = "Cursos Bakery";
+    $usuario = ["nome"=>"Stephania"];
 ?>
 
 <!DOCTYPE html>
@@ -19,15 +20,21 @@
         </h1>
         <nav>
             <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cursos</a>
-                </li>
-                <li class="nav-item">
-                   <a class="nav-link" href="#">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cadastro</a>
-                </li>
+                <?php if(isset($usuario) && $usuario != []) {?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Olá <?php echo $usuario["nome"]; ?></a>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cadastro</a>
+                    </li>
+                <?php } ?>   
             </ul>
         </nav>
     </header>
@@ -36,7 +43,7 @@
             <div class="row justify-content-around">
                 <div class="col-lg-3 card text-center">
                     <h2>Pão simples</h2>
-                    <img src="./img/pao1.jpg" class="card-img-top" alt="pao 1">
+                    <img src="./img/pao3.jpg" class="card-img-top" alt="pao 1">
                     <div class="card-body">
                         <p class="card-text">R$20,00</p>
                         <a href="#" class="btn btn-primary">Compre</a>
@@ -44,7 +51,7 @@
                 </div>
                 <div class="col-lg-3 card text-center">
                     <h2>Pão pequeno</h2>
-                    <img src="./img/pao2.jpg" class="card-img-top" alt="pao 2">
+                    <img src="./img/pao3.jpg" class="card-img-top" alt="pao 2">
                     <div class="card-body">
                         <p class="card-text">R$15,00</p>
                         <a href="#" class="btn btn-primary">Compre</a>
