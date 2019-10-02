@@ -1,6 +1,14 @@
 <?php
     $nomeSistema = "Cursos Bakery";
     $usuario = ["nome"=>"Stephania"];
+
+    $produtos = [
+        ["nome"=>"Curso pão de forma", "preco"=>"R$120,00", "duracao"=>"4 horas"],
+        ["nome"=>"Curso pão sourdough", "preco"=>"R$500,00", "duracao"=>"16 horas"],
+        ["nome"=>"Curso pão italiano", "preco"=>"R$450,00", "duracao"=>"16 horas"],
+    ];
+
+    $categorias = ["Pães","Equipamentos", "Cursos"];
 ?>
 
 <!DOCTYPE html>
@@ -38,33 +46,35 @@
             </ul>
         </nav>
     </header>
+    <nav>
+        <ul class="nav">
+            <?php foreach($categorias as $categoria){?>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><?php echo $categoria; ?></a>
+                </li>
+            <?php } ?>
+    </nav>    
     <main>
         <section class="container mt-4">
             <div class="row justify-content-around">
-                <div class="col-lg-3 card text-center">
-                    <h2>Pão simples</h2>
-                    <img src="./img/pao3.jpg" class="card-img-top" alt="pao 1">
-                    <div class="card-body">
-                        <p class="card-text">R$20,00</p>
-                        <a href="#" class="btn btn-primary">Compre</a>
+        <!-- caso não tenha produtos na loja, para dar um feedback para o usuario -->    
+            <?php if(isset($produtos) && $produtos != []){ ?>
+                <?php foreach($produtos as $produto){  ?>
+                    <div class="col-lg-3 card text-center">
+                        <h2><?php echo $produto["nome"]; ?></h2>
+                        <img src="./img/pao3.jpg" class="card-img-top" alt="pao 1">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $produto["preco"]; ?></h5>
+                            <p class="card-text"><?php echo $produto["duracao"]; ?></p>
+                            <a href="#" class="btn btn-primary">Compre</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 card text-center">
-                    <h2>Pão pequeno</h2>
-                    <img src="./img/pao3.jpg" class="card-img-top" alt="pao 2">
-                    <div class="card-body">
-                        <p class="card-text">R$15,00</p>
-                        <a href="#" class="btn btn-primary">Compre</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 card text-center">    
-                    <h2>Pão grande</h2>
-                    <img src="./img/pao3.jpg" class="card-img-top" alt="pao 3">
-                    <div class="card-body">
-                        <p class="card-text">R$25,00</p>
-                        <a href="#" class="btn btn-primary">Compre</a>
-                    </div>
-                </div>
+                    <!-- Fechando o php que abriu no foreach -->
+                <?php } ?>    
+            <!-- Fechando o php que abriu no if -->
+            <?php } else { ?>
+                <h1> Não tem cursos disponíveis no momento. :( </h1>
+            <?php } ?>
             </div>
         </section>
     </main>
