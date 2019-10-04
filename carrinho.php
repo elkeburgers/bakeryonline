@@ -1,13 +1,6 @@
 <?php
     $nomeSistema = "Cursos Bakery";
     $usuario = ["nome"=>"Stephania"];
-
-    $produtos = [
-        ["nome"=>"Pão de Forma", "preco"=>"R$120,00", "duracao"=>"4 horas", "img"=>"./img/pao3.jpg"],
-        ["nome"=>"Pão Sourdough", "preco"=>"R$500,00", "duracao"=>"16 horas", "img"=>"./img/pao2.jpg"],
-        ["nome"=>"Pão Italiano", "preco"=>"R$450,00", "duracao"=>"16 horas", "img"=>"./img/pao1.jpg"],
-    ];
-
     $categorias = ["Pães","Equipamentos", "Cursos"];
 ?>
 
@@ -55,28 +48,34 @@
             <?php } ?>
     </nav>    
     <main>
-        <section class="container mt-4">
-            <div class="row justify-content-around">
-        <!-- caso não tenha produtos na loja, para dar um feedback para o usuario -->    
-            <?php if(isset($produtos) && $produtos != []){ ?>
-                <?php foreach($produtos as $produto){  ?>
-                    <div class="col-lg-3 card text-center">
-                        <h2><?php echo "Curso"." ".$produto["nome"]; ?></h2>
-                        <img src="<?php echo $produto["img"] ?>" class="card-img-top" alt="pao">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $produto["preco"]; ?></h5>
-                            <p class="card-text"><?php echo $produto["duracao"]; ?></p>
-                            <a href="carrinho.php?nomeProduto=<?php echo $produto["nome"]; ?>" class="btn btn-primary">Compre</a>
+        <section class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Carrinho de compras</h1>
+                    </div>
+                    <div class="col-12">
+                        <div class="row card">
+                        <!-- a classe card foi para deixar com a bordinha -->
+                            <div class="col-12">
+                                <h3>Você está comprando o curso de <?php echo $_GET["nomeProduto"]; ?></h3>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <form class="d-flex flex-column p-3" method="post" action="sucesso.php">
+                                    <input type="text" name="nomeCompleto" placeholder="Digite seu nome completo.">
+                                    <!-- Se quiser pode colocar input:number, mas não aceita pontos no CPF -->
+                                    <input type="text" name="cpf" placeholder="Digite seu CPF.">
+                                    <input type="number" name="cartao" placeholder="Digite o número do cartão.">
+                                    <input type="date" name="validadeCartao" placeholder="Digite a data de validade.">
+                                    <input type="password" name="codigoCartao" placeholder="Digite o CV">
+
+                                    <button class="btn btn-success">Finalizar a compra</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <!-- Fechando o php que abriu no foreach -->
-                <?php } ?>    
-            <!-- Fechando o php que abriu no if -->
-            <?php } else { ?>
-                <h1> Não tem cursos disponíveis no momento. :( </h1>
-            <?php } ?>
-            </div>
+                </div>
         </section>
+
     </main>
 </body>
 </html>
