@@ -1,3 +1,4 @@
+<?php include_once("config/variaveis.php") ?>
 
 <header class="navbar">
         <h1 id=logo>
