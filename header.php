@@ -13,6 +13,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Olá <?php echo $usuario["nome"]; ?></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sair</a>
+            </li>
             <?php } else { ?>
             <li class="nav-item">
                 <a class="nav-link" href="#">Login</a>
