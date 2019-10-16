@@ -22,7 +22,7 @@
                         <img src="<?php echo $produto["img"] ?>" class="card-img-top" alt="pao">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $produto["preco"]; ?></h5>
-                            <p class="card-text"><?php echo $produto["duracao"]; ?></p>
+                            <p class="card-text"><?php echo $produto["desc"]; ?></p>
                             <a href="carrinho.php?nomeProduto=<?php echo $produto["nome"]; ?>" class="btn btn-primary">Compre</a>
                         </div>
                     </div>

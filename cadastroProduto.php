@@ -51,12 +51,15 @@ if($_POST){
     // "name", "tmp_name" vem de dentro da array que o teste acima criou (array associativo), elas sempre vem, usar sempre igual
     $nomeImg = $_FILES["imgProduto"]["name"];
     $localTmp = $_FILES["imgProduto"]["tmp_name"];
-    // "$nomeImg" para manter o nome original do arquivo
-    $caminhoSalvo = "img/".$nomeImg;
+    // "$nomeImg" para manter o nome original do arquivo. POde concatenar com data, horário, nome do usuário, ou outras informações (uso para o seaze). $caminhoSalvo é o link onde está de fato a imagem, e devo informar ele para o json.
+    $dataAtual = date("d-m-y");
+    $caminhoSalvo = "img/".$dataAtual.$nomeImg;
 
     $deucerto = move_uploaded_file($localTmp, $caminhoSalvo);
-    exit;
-    echo cadastrarProduto($_POST["nomeProduto"], $_POST["descProduto"], $_POST["precoProduto"], $_POST["imgProduto"]);
+    // exit;
+    // echo cadastrarProduto($_POST["nomeProduto"], $_POST["descProduto"], $_POST["precoProduto"], $_POST["imgProduto"]);
+    // substitui $_POST de img por caminhoSalvo
+    echo cadastrarProduto($_POST["nomeProduto"], $_POST["descProduto"], $_POST["precoProduto"], $caminhoSalvo);
 }
 
 
