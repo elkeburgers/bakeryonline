@@ -5,13 +5,10 @@ session_start();
    // abaixo, if ternario: se usuario existe, se não existir, retorna vazio. Entre isset e o resto tem que ser igual abaixo, sem espaços.
    // cuidado com o array no final, agora igual ao header na comparação do $usuario, mas antes com aspas para indicar vazio conflitava com o header
     $usuario = isset($_SESSION["usuario"]) ? $_SESSION["usuario"]: [];
-
-
-        $nomeArquivo = "produto.json";
-        // colocar o "abrir o arquivo" dentro da criação da array, igual programação real, reduzindo a quantidade de linhas e de variaveis a serem criadas
+        $nomeArquivo = __DIR__."/../produto.json";
+        // colocar o "abrir o arquivo" dentro da criação da array, igual programação real, reduzindo a quantidade de linhas e de variaveis a serem criadas (abaixo). Essa linha é para o correto upload de fotos.
         $produtos = json_decode(file_get_contents($nomeArquivo), true);
-        // para fazer o correto upload de fotos.
-
+        // echo $nomeArquivo;  => usado para descobrir o caminho do erro que deu ao trocar o arquivo variaveis.php de lugar, e assim corrigir.
 
     // original do php, substituido com arquivo json
     // $produtos = [
