@@ -14,11 +14,11 @@
                 <a class="nav-link" href="#">Olá <?php echo $usuario["nome"]; ?></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Sair</a>
+                <a class="nav-link" href="sair.php">Sair</a>
             </li>
             <?php } else { ?>
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="login.php">Log In</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Cadastro</a>
