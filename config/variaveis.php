@@ -17,5 +17,6 @@ session_start();
     //     ["nome"=>"Pão Italiano", "preco"=>"R$450,00", "duracao"=>"16 horas", "img"=>"./img/pao1.jpg"],
     // ]; 
     
-    $categorias = ["Pães","Equipamentos", "Cursos"];
+    $categorias = ["Home","Cadastro", "Login"];
+    $links = ["index.php","cadastroProduto.php","login.php"];
 ?>

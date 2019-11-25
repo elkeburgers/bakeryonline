@@ -30,8 +30,10 @@
 <nav class="nav-bar bg-dark">
     <ul class="nav">
         <?php foreach($categorias as $categoria){?>
+            <?php foreach($links as $link){?>
         <li class="nav-item">
-            <a class="nav-link text-white" href="#"><?php echo $categoria; ?></a>
+            <a class="nav-link text-white" href="<?php echo $link; ?>"><?php echo $categoria; ?></a>
         </li>
+        <?php } ?>
         <?php } ?>
 </nav>
